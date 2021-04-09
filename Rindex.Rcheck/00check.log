@@ -1,0 +1,140 @@
+* using log directory 'C:/Users/leogu/Documents/Ter/Rand-Index-Rpackage/Rindex.Rcheck'
+* using R version 4.0.2 (2020-06-22)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* using session charset: ISO8859-1
+* using options '--no-manual --as-cran'
+* checking for file 'Rindex/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'Rindex' version '0.1.0'
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking serialization versions ... OK
+* checking whether package 'Rindex' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking DESCRIPTION meta-information ... WARNING
+Non-standard license specification:
+  What license is it under?
+Standardizable: FALSE
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+norme: no visible global function definition for 'rnorm'
+Undefined global functions or variables:
+  rnorm
+Consider adding
+  importFrom("stats", "rnorm")
+to your NAMESPACE file.
+* checking Rd files ... WARNING
+prepare_Rd: jaccard.Rd:5-7: Dropping empty section \description
+prepare_Rd: jaccard.Rd:17-19: Dropping empty section \details
+prepare_Rd: jaccard.Rd:20-26: Dropping empty section \value
+prepare_Rd: jaccard.Rd:33-35: Dropping empty section \note
+prepare_Rd: jaccard.Rd:30-32: Dropping empty section \author
+prepare_Rd: jaccard.Rd:27-29: Dropping empty section \references
+prepare_Rd: jaccard.Rd:39-41: Dropping empty section \seealso
+checkRd: (5) jaccard.Rd:0-61: Must have a \description
+prepare_Rd: norme.Rd:5-7: Dropping empty section \description
+prepare_Rd: norme.Rd:17-19: Dropping empty section \details
+prepare_Rd: norme.Rd:20-26: Dropping empty section \value
+prepare_Rd: norme.Rd:33-35: Dropping empty section \note
+prepare_Rd: norme.Rd:30-32: Dropping empty section \author
+prepare_Rd: norme.Rd:27-29: Dropping empty section \references
+prepare_Rd: norme.Rd:39-41: Dropping empty section \seealso
+checkRd: (5) norme.Rd:0-61: Must have a \description
+prepare_Rd: rand.Rd:14-16: Dropping empty section \details
+prepare_Rd: rand.Rd:17-23: Dropping empty section \value
+prepare_Rd: rand.Rd:30-32: Dropping empty section \note
+prepare_Rd: rand.Rd:27-29: Dropping empty section \author
+prepare_Rd: rand.Rd:24-26: Dropping empty section \references
+prepare_Rd: rand.Rd:36-38: Dropping empty section \seealso
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... WARNING
+Codoc mismatches from documentation object 'jaccard':
+jaccard
+  Code: function(dataframe, method1 = "single", method2 = "complete")
+  Docs: function(x)
+  Argument names in code not in docs:
+    dataframe method1 method2
+  Argument names in docs not in code:
+    x
+  Mismatches in argument names:
+    Position: 1 Code: dataframe Docs: x
+
+Codoc mismatches from documentation object 'norme':
+norme
+  Code: function(n, mu = 10, sigma = 1, nb_observations = 200)
+  Docs: function(x)
+  Argument names in code not in docs:
+    n mu sigma nb_observations
+  Argument names in docs not in code:
+    x
+  Mismatches in argument names:
+    Position: 1 Code: n Docs: x
+
+Codoc mismatches from documentation object 'rand':
+rand
+  Code: function(dataframe, method1 = "single", method2 = "complete")
+  Docs: function(x)
+  Argument names in code not in docs:
+    dataframe method1 method2
+  Argument names in docs not in code:
+    x
+  Mismatches in argument names:
+    Position: 1 Code: dataframe Docs: x
+
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... WARNING
+'library' or 'require' call not declared from: 'ggplot2'
+* checking examples ... ERROR
+Running examples in 'Rindex-Ex.R' failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: clustering
+> ### Title: clustering
+> ### Aliases: clustering
+> ### Keywords: cluster
+> 
+> ### ** Examples
+> 
+> require(ggplot2)
+Loading required package: ggplot2
+Warning in library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called 'ggplot2'
+> dataframe=norme(n=10,mu=100,sigma=5)
+> clusters=clustering(dataframe, k=5)
+> 
+> ## plot depicting the clusters from the method "single"
+> ggplot(clusters)+aes(x,y)+geom_point(aes(color=single))
+Error in ggplot(clusters) : could not find function "ggplot"
+Execution halted
+* checking for non-standard things in the check directory ... OK
+* checking for detritus in the temp directory ... OK
+* DONE
+Status: 1 ERROR, 4 WARNINGs, 1 NOTE

@@ -11,7 +11,7 @@
   \item{dataframe}{dataframe with 8 new columns, each of which corresponding to a clustering method}
 }
 \examples{
-require(library(ggplot2))
+require(ggplot2)
 dataframe=norme(n=10,mu=100,sigma=5)
 clusters=clustering(dataframe, k=5)
 
