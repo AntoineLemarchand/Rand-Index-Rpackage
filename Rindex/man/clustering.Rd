@@ -11,12 +11,11 @@
   \item{dataframe}{dataframe with 8 new columns, each of which corresponding to a clustering method}
 }
 \examples{
-require(library(ggplot2))
 dataframe=norme(n=10,mu=100,sigma=5)
 clusters=clustering(dataframe, k=5)
 
 ## plot depicting the clusters from the method "single"
-ggplot(clusters)+aes(x,y)+geom_point(aes(color=single))
+plot(clusters$x,clusters$y,col=clusters$single)
 }
 \keyword{cluster}
 \details{mettre les différentes méthodes de clustering et les expliquer vite fait}

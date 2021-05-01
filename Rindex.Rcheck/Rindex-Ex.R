@@ -32,12 +32,11 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-require(ggplot2)
 dataframe=norme(n=10,mu=100,sigma=5)
 clusters=clustering(dataframe, k=5)
 
 ## plot depicting the clusters from the method "single"
-ggplot(clusters)+aes(x,y)+geom_point(aes(color=single))
+plot(clusters$x,clusters$y,col=clusters$single)
 
 
 
@@ -80,9 +79,21 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (x)
-{
+function(dataframe,method1="single",method2="complete"){
+  m11=0
+  m10=0
+  m01=0
+  n<-nrow(dataframe)
+  for (i in 1:n){
+    z=rep(dataframe[i, method1],n)
+    t=rep(dataframe[i, method2],n)
+    m11 <- m11 + sum((z==dataframe[,method1])*(t==dataframe[,method2]))
+    m10 <- m10 + sum((z==dataframe[,method1])*(1-(t==dataframe[,method2])))
+    m01 <- m01 + sum((1-(z==dataframe[,method1]))*(t==dataframe[,method2]))
   }
+  jaccard.index=(m11)/(m11+m10+m01)
+  return(jaccard.index)
+}
 
 
 
@@ -106,9 +117,30 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (x)
-{
+function(n,mu=10,sigma=1,nb_observations=200){
+  liste_mu=list()
+  liste_sigma=list()
+  liste_lois=list()
+  liste_varx=list()
+  liste_vary=list()
+  liste_covxy=list()
+  ind_pairs=seq(1,nb_observations,2)
+  ind_impairs=seq(2,nb_observations,2)
+  x=NULL
+  y=NULL
+  for (i in 1:n){
+    liste_mu[i]=list(sample(0:mu,2,replace = TRUE))
+    liste_varx[[i]]=sample(1:sigma,1)
+    liste_vary[[i]]=sample(1:sigma,1)
+    liste_covxy[[i]]=sample(min(liste_varx[[i]],liste_vary[[i]]),1)
+    liste_sigma[i]=list(matrix(c(liste_varx[[i]],rep(liste_covxy[[i]],2),liste_vary[[i]]),2,2))
+    liste_lois[i]=list(rnorm(nb_observations,liste_mu[[i]],liste_sigma[[i]]))
+    x=c(x,liste_lois[[i]][ind_pairs])
+    y=c(y,liste_lois[[i]][ind_impairs])
   }
+  mvr=data.frame(x,y)
+  return(mvr)
+}
 
 
 
@@ -132,9 +164,23 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (x)
-{
+function(dataframe, method1="single", method2="complete"){
+  m11=0
+  m00=0
+  m10=0
+  m01=0
+  n<-nrow(dataframe)
+  for (i in 1:n){
+    z=rep(dataframe[i, method1],n)
+    t=rep(dataframe[i, method2],n)
+    m11 <- m11 + sum((z==dataframe[,method1])*(t==dataframe[,method2]))
+    m00 <- m00 + sum((1-(z==dataframe[,method1]))*(1-(t==dataframe[,method2])))
+    m10 <- m10 + sum((z==dataframe[,method1])*(1-(t==dataframe[,method2])))
+    m01 <- m01 + sum((1-(z==dataframe[,method1]))*(t==dataframe[,method2]))
   }
+  rand.index=(m11+m00)/(m11+m00+m10+m01)
+  return(rand.index)
+}
 
 
 
