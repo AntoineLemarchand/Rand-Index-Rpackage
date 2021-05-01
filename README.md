@@ -10,7 +10,9 @@ To create clusters from a dataframe, use the function :
 > clustering(dataframe, numberofgroups)
 Then to compare two methods you can use :
 > jaccard(df, method1, method2)
+
 Or
+
 > rand(df, method1, method2)
 ## Installation
 
