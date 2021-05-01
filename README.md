@@ -21,5 +21,4 @@ Clone the repo in your package files :
 
 
 ### (TODO)
-- Update README
 - finish up doc
