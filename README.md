@@ -10,3 +10,9 @@ This package has been created as a project for the university of Rennes 2 by 4 s
 
 Clone the repo in your package files : 
 > git clone https://github.com/AntoineLemarchand/Rand-Index-Rpackage
+
+
+### (TODO)
+- Update README
+- add MIT licence
+- finish up doc
