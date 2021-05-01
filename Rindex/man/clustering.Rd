@@ -20,7 +20,7 @@
   \item{dataframe}{dataframe with 8 new columns, each of which corresponding to a clustering method}
 }
 \examples{
-dataframe=norme(n_norms=5,mu=0,sigma=1)
+dataframe=norme(n.norms=5,mu=0,sigma=1)
 clusters=clustering(dataframe, k=5)
 
 ## plot depicting the clusters from the method "complete"

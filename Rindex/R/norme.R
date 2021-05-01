@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-norme=function(n.norms, n = 100, mu = 10, sigma = 1){
+norme=function(n.norms, n = 100, mu = 0, sigma = 1){
   x=NULL
   y=NULL
   for (i in 1:n.norms){

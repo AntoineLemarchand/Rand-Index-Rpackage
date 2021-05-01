@@ -2,12 +2,9 @@ Package: Rindex
 Type: Package
 Title: ClusterPack
 Version: 0.1.0
-<<<<<<< HEAD
-Author: Leo Guichard, Antoine Lemarchand, Paul Pinard, Briac Thébault
 Description: A R package to create and compare different clustering methods
     using the Jaccard and rand index.
 Maintainer: Antoine Lemarchand <antoine.lemarchand05@gmail.com>
-=======
 Authors@R: c(
     person("Guichard","Leo", role="aut"),
     person("Lemarchand","Antoine",email="antoine.lemarchand05@gmail.com", role=c("aut","cre")),
@@ -16,7 +13,6 @@ Authors@R: c(
     )
 Description: A R package to create and compare different clustering methods
     using the Jaccard and rand index.
->>>>>>> a3adaa60d147015c099f2300c6f51a9e12640703
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
