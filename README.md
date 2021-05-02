@@ -20,7 +20,3 @@ Or
 
 Clone the repo in your package files : 
 > git clone https://github.com/AntoineLemarchand/Rand-Index-Rpackage
-
-
-### (TODO)
-- finish up doc
