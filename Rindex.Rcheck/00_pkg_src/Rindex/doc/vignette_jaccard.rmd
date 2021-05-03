@@ -4,7 +4,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Indice de Jaccard}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include = FALSE}
@@ -12,13 +12,13 @@ library(Rindex)
 knitr::opts_chunk$set(collapse = T, comment = "#>")
 ```
 
-This vignette will be about Jaccard's index and its utilization. For that, we will 
+This vignette will be about Jaccard index and its utilization. For that, we will 
 explain how it works with practical examples. Here, we will change 4 variables : 
 Mu, Sigma, n.norms and the number of observations. In this vignette
 like the Rand one, we will keep the same methods to be able to see differences between 
 each index.
 
-In this vignette, "ward.D" and "complete" will be our tested methods.
+In this vignette, "single" and "centroid" will be our tested methods.
 
 # Reference
 

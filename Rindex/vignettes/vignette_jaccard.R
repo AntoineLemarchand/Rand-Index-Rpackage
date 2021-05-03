@@ -1,31 +1,8 @@
----
-title: "Indice de Jaccard"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Indice de Jaccard}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
-
-```{r setup, include = FALSE}
+## ----setup, include = FALSE---------------------------------------------------
 library(Rindex)
 knitr::opts_chunk$set(collapse = T, comment = "#>")
-```
 
-This vignette will be about Jaccard's index and its utilization. For that, we will 
-explain how it works with practical examples. Here, we will change 4 variables : 
-Mu, Sigma, n.norms and the number of observations. In this vignette
-like the Rand one, we will keep the same methods to be able to see differences between 
-each index.
-
-In this vignette, "ward.D" and "complete" will be our tested methods.
-
-# Reference
-
-This example will be a reference for the 4 examples that will follow. With this, 
-we will be able to see the variation of each of our variables.
-
-```{r}
+## -----------------------------------------------------------------------------
 n = 4
 Mu = 5 
 sigm = 2       
@@ -44,12 +21,8 @@ jaccard(dataframe = df,
 #creation of the graphics to compare the similarities
 plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
 plot(df$x,df$y,col=df$complete, main="complete method") 
-```
 
-# Example 1
-
-Here, we are focusing on Mu : 
-```{r}
+## -----------------------------------------------------------------------------
 Mu = 10 
 n = 4           #Constant for this example
 sigm = 2        #Constant for this example 
@@ -68,12 +41,8 @@ jaccard(dataframe = df,
 #creation of the graphics to compare the similarities
 plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
 plot(df$x,df$y,col=df$complete, main="complete method") 
-```
 
-# Example 2
-
-Same case with sigma :
-```{r}
+## -----------------------------------------------------------------------------
 Mu = 5          #Constant for this example 
 n = 4           #Constant for this example
 sigm = 10 
@@ -92,12 +61,8 @@ jaccard(dataframe = df,
 #creation of the graphics to compare the similarities
 plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
 plot(df$x,df$y,col=df$complete, main="complete method")  
-```
 
-# Example 3
-
-For n :  
-```{r}
+## -----------------------------------------------------------------------------
 Mu = 5          #Constant for this example
 n = 16          
 sigm = 2        #Constant for this example 
@@ -116,12 +81,8 @@ jaccard(dataframe = df,
 #creation of the graphics to compare the similarities
 plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
 plot(df$x,df$y,col=df$complete, main="complete method") 
-```
 
-# Example 4
-
-And finally, with our number of observations : 
-```{r}
+## -----------------------------------------------------------------------------
 Mu = 5          #Constant for this example
 n = 4           #Constant for this example
 sigm = 2        #Constant for this example 
@@ -140,4 +101,4 @@ jaccard(dataframe = df,
 #creation of the graphics to compare the similarities
 plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
 plot(df$x,df$y,col=df$complete, main="complete method") 
-```
+

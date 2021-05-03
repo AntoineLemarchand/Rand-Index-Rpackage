@@ -4,24 +4,21 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Indice de Rand}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include = FALSE}
 library(Rindex)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
 knitr::opts_chunk$set(collapse = T, comment = "#>")
 ```
 
-This vignette will be about Rand index and its utilization. For that, we will 
+This vignette will be about Rand's index and its utilization. For that, we will 
 explain how it works with practical examples. Here, we will change 4 variables : 
 Mu, Sigma, n.norms and the number of observations. In this vignette
 like the Jaccard one, we will keep the same methods to be able to see differences between 
 each index. 
 
-In this vignette, "single" and "average" will be our tested methods.
+In this vignette, "ward.D" and "complete" will be our tested methods.
 
 # Reference
 
@@ -32,24 +29,21 @@ we will be able to see the variation of each of our variables.
 n = 4
 Mu = 5 
 sigm = 2       
-nb_obs= 1000
+nb_obs= 100
 
+#creation of the data frame and implementing it in our function clustering
 df <- clustering(dataframe = norme(n.norms = n,n = nb_obs,mu = Mu,sigma = sigm),
-                 k = 3)           #creation of the data frame and implementing it 
-                                  #in our function clustering
+                 k = 3)           
 
-df1 <- df %>% 
-  summarise(count=n())
 
-df <- cbind(df,df1)
 
 rand(dataframe = df,
-        method1 = "single",
-        method2 = "average")    #choice of method for our rand function 
+        method1 = "ward.D",
+        method2 = "complete")    #choice of method for our rand function 
 
-ggplot(df) +                    
-  aes(x,y) + 
-geom_point(aes(color=average))  #creation of the graphic 
+#creation of the graphics to compare the similarities
+plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
+plot(df$x,df$y,col=df$complete, main="complete method")
 ```
 
 # Example 1
@@ -59,24 +53,21 @@ Here, we are focusing on Mu :
 Mu = 10 
 n = 4           #Constant for this example
 sigm = 2        #Constant for this example 
-nb_obs= 1000    #Constant for this example
+nb_obs= 100    #Constant for this example
 
+#creation of the data frame and implementing it in our function clustering
 df <- clustering(dataframe = norme(n.norms = n,n = nb_obs,mu = Mu,sigma = sigm),
-                 k = 3)           #creation of the data frame and implementing it 
-                                  #in our function clustering
+                 k = 3)           
 
-df1 <- df %>% 
-  summarise(count=n())
 
-df <- cbind(df,df1)
 
 rand(dataframe = df,
-        method1 = "single",
-        method2 = "average")    #choice of method for our rand function 
+        method1 = "ward.D",
+        method2 = "complete")    #choice of method for our rand function 
 
-ggplot(df) +                    
-  aes(x,y) + 
-geom_point(aes(color=average))  #creation of the graphic 
+#creation of the graphics to compare the similarities
+plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
+plot(df$x,df$y,col=df$complete, main="complete method")
 ```
 
 # Example 2
@@ -86,24 +77,21 @@ Same case with sigma :
 Mu = 5          #Constant for this example 
 n = 4           #Constant for this example
 sigm = 10 
-nb_obs= 1000    #Constant for this example
+nb_obs= 100    #Constant for this example
 
-df <- clustering(dataframe = norme(n.norms = 4,n = nb_obs,mu = Mu,sigma = sigm),
-                 k = 3)           #creation of the data frame and implementing it 
-                                  #in our function clustering
+#creation of the data frame and implementing it in our function clustering
+df <- clustering(dataframe = norme(n.norms = n,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           
 
-df1 <- df %>% 
-  summarise(count=n())
 
-df <- cbind(df,df1)
 
 rand(dataframe = df,
-        method1 = "single",
-        method2 = "average")    #choice of method for our rand function 
+        method1 = "ward.D",
+        method2 = "complete")    #choice of method for our rand function 
 
-ggplot(df) +                    
-  aes(x,y) + 
-geom_point(aes(color=average))  #creation of the graphic 
+#creation of the graphics to compare the similarities
+plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
+plot(df$x,df$y,col=df$complete, main="complete method")
 ```
 
 # Example 3
@@ -111,26 +99,23 @@ geom_point(aes(color=average))  #creation of the graphic
 For n :  
 ```{r}
 Mu = 5          #Constant for this example
-n = 16          #Constant for this example
+n = 10          
 sigm = 2        #Constant for this example 
-nb_obs= 1000
+nb_obs= 100     #Constant for this example
 
-df <- clustering(dataframe = norme(n.norms = 4,n = nb_obs,mu = Mu,sigma = sigm),
-                 k = 3)           #creation of the data frame and implementing it 
-                                  #in our function clustering
+#creation of the data frame and implementing it in our function clustering
+df <- clustering(dataframe = norme(n.norms = n,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           
 
-df1 <- df %>% 
-  summarise(count=n())
 
-df <- cbind(df,df1)
 
 rand(dataframe = df,
-        method1 = "single",
-        method2 = "average")    #choice of method for our rand function 
+        method1 = "ward.D",
+        method2 = "complete")    #choice of method for our rand function 
 
-ggplot(df) +                    
-  aes(x,y) + 
-geom_point(aes(color=average))  #creation of the graphic 
+#creation of the graphics to compare the similarities
+plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
+plot(df$x,df$y,col=df$complete, main="complete method")
 ```
 
 # Example 4
@@ -140,22 +125,19 @@ And finally, with our number of observations :
 Mu = 5          #Constant for this example
 n = 4           #Constant for this example
 sigm = 2        #Constant for this example 
-nb_obs= 100
+nb_obs= 500
 
-df <- clustering(dataframe = norme(n.norms = 4,n = nb_obs,mu = Mu,sigma = sigm),
-                 k = 3)           #creation of the data frame and implementing it 
-                                  #in our function clustering
+#creation of the data frame and implementing it in our function clustering
+df <- clustering(dataframe = norme(n.norms = n,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           
 
-df1 <- df %>% 
-  summarise(count=n())
 
-df <- cbind(df,df1)
 
 rand(dataframe = df,
-        method1 = "single",
-        method2 = "average")    #choice of method for our rand function 
+        method1 = "ward.D",
+        method2 = "complete")    #choice of method for our rand function 
 
-ggplot(df) +                    
-  aes(x,y) + 
-geom_point(aes(color=average))  #creation of the graphic 
+#creation of the graphics to compare the similarities
+plot(df$x,df$y,col=df$ward.D, main="ward.D method")     
+plot(df$x,df$y,col=df$complete, main="complete method")
 ```
