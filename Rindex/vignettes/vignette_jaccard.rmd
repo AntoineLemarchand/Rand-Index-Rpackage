@@ -1,0 +1,161 @@
+---
+title: "Indice de Jaccard"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Indice de Jaccard}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+library(Rindex)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+```
+
+This vignette will be about Jaccard index and its utilization. For that, we will 
+explain how it works with practical examples. Here, we will change 4 variables : 
+Mu, Sigma, n.norms and the number of observations. In this vignette
+like the Rand one, we will keep the same methods to be able to see differences between 
+each index.
+
+In this vignette, "single" and "centroid" will be our tested methods.
+
+# Reference
+
+This example will be a reference for the 4 examples that will follow. With this, 
+we will be able to see the variation of each of our variables.
+
+```{r}
+n = 4
+Mu = 5 
+sigm = 2       
+nb_obs= 1000
+
+df <- clustering(dataframe = norme(n.norms = n,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           #creation of the data frame and implementing it 
+                                  #in our function clustering
+
+df1 <- df %>% 
+  summarise(count=n())
+
+df <- cbind(df,df1)
+
+jaccard(dataframe = df,
+        method1 = "single",
+        method2 = "centroid")    #choice of method for our rand function 
+
+ggplot(df) +                    
+  aes(x,y) + 
+geom_point(aes(color=centroid))  #creation of the graphic 
+```
+
+# Example 1
+
+Here, we are focusing on Mu : 
+```{r}
+Mu = 10 
+n = 4           #Constant for this example
+sigm = 2        #Constant for this example 
+nb_obs= 1000    #Constant for this example
+
+df <- clustering(dataframe = norme(n.norms = n,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           #creation of the data frame and implementing it 
+                                  #in our function clustering
+
+df1 <- df %>% 
+  summarise(count=n())
+
+df <- cbind(df,df1)
+
+jaccard(dataframe = df,
+        method1 = "single",
+        method2 = "centroid")    #choice of method for our rand function 
+
+ggplot(df) +                    
+  aes(x,y) + 
+geom_point(aes(color=centroid))  #creation of the graphic 
+```
+
+# Example 2
+
+Same case with sigma :
+```{r}
+Mu = 5          #Constant for this example 
+n = 4           #Constant for this example
+sigm = 10 
+nb_obs= 1000    #Constant for this example
+
+df <- clustering(dataframe = norme(n.norms = 4,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           #creation of the data frame and implementing it 
+                                  #in our function clustering
+
+df1 <- df %>% 
+  summarise(count=n())
+
+df <- cbind(df,df1)
+
+jaccard(dataframe = df,
+        method1 = "single",
+        method2 = "centroid")    #choice of method for our rand function 
+
+ggplot(df) +                    
+  aes(x,y) + 
+geom_point(aes(color=average))  #creation of the graphic 
+```
+
+# Example 3
+
+For n :  
+```{r}
+Mu = 5          #Constant for this example
+n = 16          #Constant for this example
+sigm = 2        #Constant for this example 
+nb_obs= 1000
+
+df <- clustering(dataframe = norme(n.norms = 4,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           #creation of the data frame and implementing it 
+                                  #in our function clustering
+
+df1 <- df %>% 
+  summarise(count=n())
+
+df <- cbind(df,df1)
+
+jaccard(dataframe = df,
+        method1 = "single",
+        method2 = "centroid")    #choice of method for our rand function 
+
+ggplot(df) +                    
+  aes(x,y) + 
+geom_point(aes(color=centroid))  #creation of the graphic 
+```
+
+# Example 4
+
+And finally, with our number of observations : 
+```{r}
+Mu = 5          #Constant for this example
+n = 4           #Constant for this example
+sigm = 2        #Constant for this example 
+nb_obs= 100
+
+df <- clustering(dataframe = norme(n.norms = 4,n = nb_obs,mu = Mu,sigma = sigm),
+                 k = 3)           #creation of the data frame and implementing it 
+                                  #in our function clustering
+
+df1 <- df %>% 
+  summarise(count=n())
+
+df <- cbind(df,df1)
+
+jaccard(dataframe = df,
+        method1 = "single",
+        method2 = "centroid")    #choice of method for our rand function 
+
+ggplot(df) +                    
+  aes(x,y) + 
+geom_point(aes(color=centroid))  #creation of the graphic 
+```
