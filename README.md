@@ -24,7 +24,7 @@ jaccard(df, method1, method2)
 Clone the repo in your package files : 
 ```r
 if (!require("devtools")) install.packages("devtools")
-  devtools::install_github("AntoineLemarchand/Rand-Index-Rpackage", build_vignettes = TRUE)
+  devtools::install_github("AntoineLemarchand/Rindex", build_vignettes = TRUE)
 ```
 ## Documentation
 Simple doc
