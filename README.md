@@ -1,5 +1,5 @@
 # R Index for comparing cluster functions
-This package has been created as a project for the university of Rennes 2 by 4 student in statistics.
+This package has been created as a project for the university of Rennes 2 by 4 student***s*** in statistics.
 
 ## Purpose
 This package aims to create clusters from a dataframe using different methods 
