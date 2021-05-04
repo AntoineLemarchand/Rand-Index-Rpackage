@@ -7,7 +7,8 @@ and compare them using two types of index.
 
 ## How it works
 To create clusters from a dataframe, use the function :
-> clustering(dataframe, numberofgroups)
+
+> df <- clustering(mydataframe, numberofgroups)
 
 Then to compare two methods you can use :
 
