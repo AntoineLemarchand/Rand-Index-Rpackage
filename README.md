@@ -31,5 +31,4 @@ Vignettes
 
 > vignette("vignette_jaccard")
 
-## Licence
-Under MIT +
+#### Licence : MIT
