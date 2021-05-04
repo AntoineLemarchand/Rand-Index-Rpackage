@@ -6,7 +6,7 @@ This package aims to create clusters from a dataframe using different methods
 and compare them using two types of index.
 
 ## How it works
-To create clusters from a dataframe (maybe using our inhome function norme()), use the function :
+To create clusters from a dataframe (maybe using our inhome function "norme()"), use the function :
 
 > df <- clustering(mydataframe, numberofgroups)
 
