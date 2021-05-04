@@ -28,6 +28,7 @@ Simple doc
 
 Vignettes
 > vignette("vignette_rand")
+
 > vignette("vignette_jaccard")
 
 ## Licence
