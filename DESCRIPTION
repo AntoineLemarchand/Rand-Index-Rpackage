@@ -6,10 +6,10 @@ Description: A R package to create and compare different clustering methods
     using the Jaccard and rand index.
 Maintainer: Antoine Lemarchand <antoine.lemarchand05@gmail.com>
 Authors@R: c(
-    person("Guichard","Leo", role="aut"),
+    person("Guichard","Leo",email="leo.guichard@hotmail.fr", role="aut"),
     person("Lemarchand","Antoine",email="antoine.lemarchand05@gmail.com", role=c("aut","cre")),
-    person("Pinard","Paul", role="aut"),
-    person("Thébault","Briac", role="aut")
+    person("Pinard","Paul",emsail="p.pinard02@gmail.com ", role="aut"),
+    person("Thébault","Briac",email="briac.thebault@gmail.com", role="aut")
     )
 Description: A R package to create and compare different clustering methods
     using the Jaccard and rand index.
