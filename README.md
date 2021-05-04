@@ -19,4 +19,16 @@ Or
 ## Installation
 
 Clone the repo in your package files : 
-> git clone https://github.com/AntoineLemarchand/Rand-Index-Rpackage
+> if (!require("devtools")) install.packages("devtools")
+> devtools::install_github("AntoineLemarchand/Rand-Index-Rpackage", build_vignettes = TRUE)
+
+## Documentation
+Simple doc
+> ?jaccard()
+
+Vignettes
+> vignette("vignette_rand")
+> vignette("vignette_jaccard")
+
+## Licence
+Under MIT +
