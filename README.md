@@ -13,11 +13,11 @@ df <- clustering(mydataframe, numberofgroups)
 Then to compare two methods you can use :
 
 ```r
-jaccard(df, method1, method2)
+rand(df, method1, method2)
 ```
 Or
 ```r
-rand(df, method1, method2)
+jaccard(df, method1, method2)
 ```
 ## Installation
 
@@ -29,7 +29,7 @@ if (!require("devtools")) install.packages("devtools")
 ## Documentation
 Simple doc
 ```r
-??jaccard()
+??rand()
 ```
 
 Vignettes
