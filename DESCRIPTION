@@ -1,6 +1,6 @@
 Package: Rindex
 Type: Package
-Title: ClusterPack
+Title: Rindex
 Version: 0.1.0
 Description: A R package to create and compare different clustering methods
     using the Jaccard and rand index.
