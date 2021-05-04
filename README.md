@@ -7,29 +7,34 @@ and compare them using two types of index.
 
 ## How it works
 To create clusters from a dataframe (maybe using our inhome function "norme()"), use the function :
-
-> df <- clustering(mydataframe, numberofgroups)
-
+```r
+df <- clustering(mydataframe, numberofgroups)
+```
 Then to compare two methods you can use :
 
-> jaccard(df, method1, method2)
-
+```r
+jaccard(df, method1, method2)
+```
 Or
-
-> rand(df, method1, method2)
+```r
+rand(df, method1, method2)
+```
 ## Installation
 
 Clone the repo in your package files : 
-> if (!require("devtools")) install.packages("devtools")
-> devtools::install_github("AntoineLemarchand/Rand-Index-Rpackage", build_vignettes = TRUE)
-
+```r
+if (!require("devtools")) install.packages("devtools")
+  devtools::install_github("AntoineLemarchand/Rand-Index-Rpackage", build_vignettes = TRUE)
+```
 ## Documentation
 Simple doc
-> ??jaccard()
+```r
+??jaccard()
+```
 
 Vignettes
-> vignette("vignette_rand")
-
-> vignette("vignette_jaccard")
-
+```r
+vignette("vignette_rand")
+vignette("vignette_jaccard")
+```
 #### Licence : MIT
