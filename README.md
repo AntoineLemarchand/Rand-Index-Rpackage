@@ -24,7 +24,7 @@ Clone the repo in your package files :
 
 ## Documentation
 Simple doc
-> ?jaccard()
+> ??jaccard()
 
 Vignettes
 > vignette("vignette_rand")
